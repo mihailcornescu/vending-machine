@@ -1,4 +1,4 @@
-package com.mvpmatch.vendingmachine.jwt;
+package com.mvpmatch.vendingmachine.security.jwt;
 
 public class UsernameAndPasswordAuthenticationRequest {
 

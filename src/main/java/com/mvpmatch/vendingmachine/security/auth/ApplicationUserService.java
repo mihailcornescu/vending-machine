@@ -1,4 +1,4 @@
-package com.mvpmatch.vendingmachine.auth;
+package com.mvpmatch.vendingmachine.security.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,7 +13,7 @@ public class ApplicationUserService implements UserDetailsService {
     private final ApplicationUserDao applicationUserDao;
 
     @Autowired
-    public ApplicationUserService(@Qualifier("fake") ApplicationUserDao applicationUserDao) {
+    public ApplicationUserService(@Qualifier("mysql") ApplicationUserDao applicationUserDao) {
         this.applicationUserDao = applicationUserDao;
     }
 

@@ -1,12 +1,13 @@
 package com.mvpmatch.vendingmachine.security;
 
-import com.mvpmatch.vendingmachine.auth.ApplicationUserService;
-import com.mvpmatch.vendingmachine.jwt.JwtConfig;
-import com.mvpmatch.vendingmachine.jwt.JwtTokenVerifier;
-import com.mvpmatch.vendingmachine.jwt.JwtUsernameAndPasswordAuthenticationFilter;
+import com.mvpmatch.vendingmachine.security.auth.ApplicationUserService;
+import com.mvpmatch.vendingmachine.security.jwt.JwtConfig;
+import com.mvpmatch.vendingmachine.security.jwt.JwtTokenVerifier;
+import com.mvpmatch.vendingmachine.security.jwt.JwtUsernameAndPasswordAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -18,9 +19,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.crypto.SecretKey;
 
-import static com.mvpmatch.vendingmachine.security.ApplicationUserRole.*;
 import static com.mvpmatch.vendingmachine.security.ApplicationUserRole.STUDENT;
-
 
 @Configuration
 @EnableWebSecurity
@@ -54,7 +53,7 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .addFilterAfter(new JwtTokenVerifier(secretKey, jwtConfig),JwtUsernameAndPasswordAuthenticationFilter.class)
                 .authorizeRequests()
                 .antMatchers("/", "index", "/css/*", "/js/*").permitAll()
-                .antMatchers("/api/**").hasRole(STUDENT.name())
+                .antMatchers(HttpMethod.POST, "/api/v1/users").permitAll()
                 .anyRequest()
                 .authenticated();
     }

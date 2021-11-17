@@ -1,4 +1,4 @@
-package com.mvpmatch.vendingmachine.auth;
+package com.mvpmatch.vendingmachine.security.auth;
 
 import com.google.common.collect.Lists;
 import org.springframework.beans.factory.annotation.Autowired;

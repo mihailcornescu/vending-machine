@@ -1,4 +1,4 @@
-package com.mvpmatch.vendingmachine.jwt;
+package com.mvpmatch.vendingmachine.security.jwt;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Jwts;

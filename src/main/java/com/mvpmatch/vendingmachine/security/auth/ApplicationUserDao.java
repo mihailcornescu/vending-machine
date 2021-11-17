@@ -1,4 +1,4 @@
-package com.mvpmatch.vendingmachine.auth;
+package com.mvpmatch.vendingmachine.security.auth;
 
 import java.util.Optional;
 
