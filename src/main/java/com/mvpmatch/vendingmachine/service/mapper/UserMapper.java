@@ -21,4 +21,6 @@ public abstract class UserMapper {
     @Mapping(target = "password", expression = "java(passwordEncoder.encode(userDto.getPassword()))")
     public abstract UserEntity toUserEntity(UserDto userDto);
 
+    public abstract UserDto toUserDto(UserEntity userEntity);
+
 }

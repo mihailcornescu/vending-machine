@@ -8,6 +8,8 @@ import com.mvpmatch.vendingmachine.service.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
@@ -19,5 +21,15 @@ public class UserServiceImpl implements UserService {
     public void addUser(UserDto userDto) {
         UserEntity entity = mapper.toUserEntity(userDto);
         repository.save(entity);
+    }
+
+    @Override
+    public UserDto getUser(String username) {
+        Optional<UserEntity> optional = repository.findByUsername(username);
+        if (optional.isPresent()) {
+            return mapper.toUserDto(optional.get());
+        } else {
+            throw new RuntimeException();
+        }
     }
 }

@@ -1,7 +1,6 @@
 package com.mvpmatch.vendingmachine.persistence.entity;
 
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,16 +9,14 @@ import javax.persistence.Table;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "USER")
+@Table(name = "PRODUCT")
 @Data
-public class UserEntity {
-
+public class ProductEntity {
     @Id
     @GeneratedValue
     private Long id;
-    private String username;
-    private String password;
-    private String roles;
-    private BigDecimal deposit;
-
+    private int amountAvailable;
+    private BigDecimal cost;
+    private String productName;
+    private int sellerId;
 }
