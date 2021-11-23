@@ -8,7 +8,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-import static com.mvpmatch.vendingmachine.security.ApplicationUserRole.*;
+import static com.mvpmatch.vendingmachine.security.ApplicationUserRole.BUYER;
+import static com.mvpmatch.vendingmachine.security.ApplicationUserRole.SELLER;
 
 @Repository("fake")
 public class FakeApplicationUserDaoService implements ApplicationUserDao {
@@ -33,7 +34,7 @@ public class FakeApplicationUserDaoService implements ApplicationUserDao {
                 new ApplicationUser(
                         "annasmith",
                         passwordEncoder.encode("password"),
-                        STUDENT.getGrantedAuthorities(),
+                        BUYER.getGrantedAuthorities(),
                         true,
                         true,
                         true,

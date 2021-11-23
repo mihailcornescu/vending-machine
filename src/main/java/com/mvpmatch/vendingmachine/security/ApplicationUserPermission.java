@@ -1,10 +1,8 @@
 package com.mvpmatch.vendingmachine.security;
 
 public enum ApplicationUserPermission {
-    STUDENT_READ("student:read"),
-    STUDENT_WRITE("student:write"),
-    PRODUCT_READ("course:read"),
-    PRODUCT_WRITE("course:write");
+    PRODUCT_READ("product:read"),
+    PRODUCT_WRITE("product:write");
 
     private final String permission;
 

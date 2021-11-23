@@ -6,4 +6,6 @@ public interface UserService {
 
     void addUser(UserDto userDto);
     UserDto getUser(String username);
+    UserDto getUserById(String id);
+    boolean userHasRoleByUserId(Long id, String role);
 }

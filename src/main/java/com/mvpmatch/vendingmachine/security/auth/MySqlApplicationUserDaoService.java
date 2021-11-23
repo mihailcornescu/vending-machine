@@ -4,10 +4,8 @@ import com.mvpmatch.vendingmachine.persistence.UserRepository;
 import com.mvpmatch.vendingmachine.persistence.entity.UserEntity;
 import com.mvpmatch.vendingmachine.service.mapper.UserMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
 
 @Repository("mysql")

@@ -3,12 +3,9 @@ package com.mvpmatch.vendingmachine.api;
 import com.mvpmatch.vendingmachine.api.dto.UserDto;
 import com.mvpmatch.vendingmachine.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.bridge.Message;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.net.URI;
 import java.text.MessageFormat;
 
@@ -28,6 +25,12 @@ public class UserController {
 
     @GetMapping("/{username}")
     public ResponseEntity<UserDto> getUser(@PathVariable String username) {
+        UserDto userDto = userService.getUser(username);
+        return ResponseEntity.ok(userDto);
+    }
+
+    @GetMapping("/by-id/{username}")
+    public ResponseEntity<UserDto> getUserById(@PathVariable String username) {
         UserDto userDto = userService.getUser(username);
         return ResponseEntity.ok(userDto);
     }

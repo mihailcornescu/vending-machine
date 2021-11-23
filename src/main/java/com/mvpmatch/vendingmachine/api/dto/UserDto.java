@@ -1,16 +1,19 @@
 package com.mvpmatch.vendingmachine.api.dto;
 
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
 
 import java.math.BigDecimal;
-import java.util.Set;
 
 @Data
 public class UserDto {
 
+    private long id;
     private String username;
     private String password;
     private String roles;
     private BigDecimal deposit;
+    private final boolean isAccountNonExpired;
+    private final boolean isAccountNonLocked;
+    private final boolean isCredentialsNonExpired;
+    private final boolean isEnabled;
 }

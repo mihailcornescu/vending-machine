@@ -1,7 +1,6 @@
 package com.mvpmatch.vendingmachine.persistence.entity;
 
 import lombok.Data;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,5 +20,8 @@ public class UserEntity {
     private String password;
     private String roles;
     private BigDecimal deposit;
-
+    private boolean isAccountNonExpired;
+    private boolean isAccountNonLocked;
+    private boolean isCredentialsNonExpired;
+    private boolean isEnabled;
 }

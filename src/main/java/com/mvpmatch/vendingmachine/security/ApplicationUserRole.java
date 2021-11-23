@@ -6,12 +6,12 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.mvpmatch.vendingmachine.security.ApplicationUserPermission.*;
+import static com.mvpmatch.vendingmachine.security.ApplicationUserPermission.PRODUCT_READ;
+import static com.mvpmatch.vendingmachine.security.ApplicationUserPermission.PRODUCT_WRITE;
 
 public enum ApplicationUserRole {
-    STUDENT(Sets.newHashSet()),
     SELLER(Sets.newHashSet(PRODUCT_READ, PRODUCT_WRITE)),
-    BUYER(Sets.newHashSet(PRODUCT_READ, STUDENT_READ));
+    BUYER(Sets.newHashSet());
 
     private final Set<ApplicationUserPermission> permissions;
 
