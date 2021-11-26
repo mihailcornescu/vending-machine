@@ -5,5 +5,7 @@ import com.mvpmatch.vendingmachine.api.dto.ProductDto;
 public interface ProductService {
 
     void addProduct(ProductDto productDto);
-    ProductDto getProductById(String id);
+    ProductDto updateProduct(ProductDto productDto);
+    ProductDto deleteProduct(long id);
+    ProductDto getProductById(long id);
 }

@@ -1,0 +1,7 @@
+{
+  "id": 1,
+  "amountAvailable": 10,
+  "cost": 5,
+  "productName": "milk",
+  "sellerId": 1
+}

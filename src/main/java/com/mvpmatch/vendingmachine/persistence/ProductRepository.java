@@ -7,5 +7,5 @@ import java.util.Optional;
 
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 
-    Optional<ProductEntity> findById(Long id);
+    Optional<ProductEntity> findFirstByProductName(String productName);
 }

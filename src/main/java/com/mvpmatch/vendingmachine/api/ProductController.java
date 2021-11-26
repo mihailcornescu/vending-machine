@@ -25,8 +25,22 @@ public class ProductController {
         return ResponseEntity.created(location).build();
     }
 
+    @PutMapping
+    @PreAuthorize("hasAnyRole('ROLE_SELLER')")
+    public ResponseEntity<ProductDto> updateProduct(@RequestBody ProductDto product) {
+        ProductDto productDto = productService.updateProduct(product);
+        return ResponseEntity.ok(productDto);
+    }
+
+    @DeleteMapping("/{productId}")
+    @PreAuthorize("hasAnyRole('ROLE_SELLER')")
+    public ResponseEntity<ProductDto> deleteProduct(@PathVariable String productId) {
+        ProductDto productDto = productService.deleteProduct(Long.parseLong(productId));
+        return ResponseEntity.ok(productDto);
+    }
+
     @GetMapping("/{productId}")
-    public ResponseEntity<ProductDto> getProduct(@PathVariable String productId) {
+    public ResponseEntity<ProductDto> getProduct(@PathVariable long productId) {
         ProductDto productDto = productService.getProductById(productId);
         return ResponseEntity.ok(productDto);
     }
